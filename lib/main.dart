@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'sign_in_page.dart'; // Import SignInPage
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'To-Do List App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
+      title: 'My App',
+      home: SignInPage(), // Atur SignInPage sebagai halaman awal (home)
     );
   }
 }

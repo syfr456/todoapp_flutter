@@ -3,27 +3,31 @@ import 'package:flutter/material.dart';
 class AddTaskPage extends StatelessWidget {
   final TextEditingController _taskController = TextEditingController();
 
+  AddTaskPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Task'),
+        title: const Text('Add Task'),
+        backgroundColor:
+            Colors.black, // Atur warna latar belakang AppBar menjadi hitam
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
               controller: _taskController,
-              decoration: InputDecoration(labelText: 'Task'),
+              decoration: const InputDecoration(labelText: 'Task'),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context, _taskController.text);
               },
-              child: Text('Add'),
+              child: const Text('Add'),
             ),
           ],
         ),
