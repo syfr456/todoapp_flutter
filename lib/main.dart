@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 import 'sign_in_page.dart'; // Import SignInPage
 
 void main() {
@@ -10,10 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'My App',
-      home: SignInPage(), // Atur SignInPage sebagai halaman awal (home)
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SignInPage(),
+        '/home_page': (context) =>
+            const HomePage(), // Register the '/home_page' route here
+      },
     );
   }
 }

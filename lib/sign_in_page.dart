@@ -10,7 +10,7 @@ class SignInPage extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 40),
@@ -23,7 +23,7 @@ class SignInPage extends StatelessWidget {
             const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.only(left: 27),
-              width: 321,
+              width: MediaQuery.of(context).size.width * 0.8,
               height: 140,
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +49,7 @@ class SignInPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Container(
-              width: 321,
+              width: MediaQuery.of(context).size.width * 0.8,
               height: 48,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(37),
@@ -81,48 +81,22 @@ class SignInPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 28, right: 14),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextButton(
                       onPressed: () {
-                        // Aksi untuk tombol "Sign with Google" disini
+                        // Action for "Sign with Google" button
                       },
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(0),
-                        minimumSize: const Size(0, 48),
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        side: BorderSide(
-                          color: Colors.white.withOpacity(1.0),
-                          width: 1,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(37),
-                        ),
-                      ),
                       child: const Text('Google'),
                     ),
                   ),
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 14, right: 28),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextButton(
                       onPressed: () {
-                        // Aksi untuk tombol "Sign with Apple ID" disini
+                        // Action for "Sign with Apple ID" button
                       },
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(0),
-                        minimumSize: const Size(0, 48),
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        side: BorderSide(
-                          color: Colors.white.withOpacity(1.0),
-                          width: 1,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(37),
-                        ),
-                      ),
                       child: const Text('Apple ID'),
                     ),
                   ),
@@ -131,7 +105,7 @@ class SignInPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'By continuing you agree to the terms and conditions',
+              'By Continuing you agree to the Terms and Conditions',
               style: TextStyle(color: Colors.white),
             ),
           ],
