@@ -1,9 +1,9 @@
-// ignore_for_file: library_private_types_in_public_api, sort_child_properties_last
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'add_task_page.dart';
-import 'task_detail_page.dart';
 import 'sign_in_page.dart';
+import 'profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -377,6 +377,8 @@ class HomePageContent extends StatelessWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int completedTasks = 5;
+  int totalTasks = 10;
   int _currentIndex = 0;
   List<String> tasks = [];
   List<Widget> _pages = [];
@@ -387,8 +389,14 @@ class _HomePageState extends State<HomePage> {
     _pages = [
       HomePageContent(tasks: tasks),
       AddTaskPage(),
-      const TaskDetailPage(task: "Sample Task"),
+      const ProfilePage(), // Add the profile page here
     ];
+  }
+
+  void navigateToProfilePage() {
+    setState(() {
+      _currentIndex = 2; // Set the index to the profile page
+    });
   }
 
   void navigateToAddTaskPage() {
@@ -404,26 +412,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void navigateToTaskDetailPage(String task) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => TaskDetailPage(task: task)),
-    );
-  }
-
-  void navigateToSignInPage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const SignInPage()),
-    ).then((isLoggedIn) {
-      if (isLoggedIn != null) {
-        setState(() {});
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    double taskProgressPercentage = (completedTasks / totalTasks) * 100;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
@@ -437,7 +428,7 @@ class _HomePageState extends State<HomePage> {
           ),
           IconButton(
             onPressed: () {
-              // Handle Profile icon click
+              navigateToProfilePage(); // Navigates to profile page
             },
             icon: const Icon(Icons.person),
           ),
@@ -470,7 +461,7 @@ class _HomePageState extends State<HomePage> {
                 label: "", // Empty label to hide the text
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.list),
+                icon: Icon(Icons.add),
                 label: "", // Empty label to hide the text
               ),
               BottomNavigationBarItem(
